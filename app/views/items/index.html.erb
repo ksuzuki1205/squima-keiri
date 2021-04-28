@@ -1,8 +1,10 @@
 <h3>経費の一覧</h3>
+<%=link_to '新しい経費の登録', new_item_path %>
 <% @items.each do |item| %>
   <li><%= "タイトル：#{item.title}" %></li>
   <li><%= "相手先：#{item.partner}" %></li>
   <li><%= "説明：#{item.explanation}" %></li>
   <li><%= "価格：#{item.price}円" %></li>
+  <li><%= link_to 'この経費を削除する', item_path(item.id), method: :delete %></li>
   <span>-----------------</span>
 <% end %>

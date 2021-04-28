@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     Item.create(item_params)
   end
 
+ def destroy
+    item = Item.find(params[:id])
+    item.destroy
+ end
+
   private
   def item_params
     params.require(:item).permit(:title, :partner, :explanation, :price)
