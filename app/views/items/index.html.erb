@@ -1,9 +1,8 @@
-<div class="contents row">
-  <% @items.each do |item| %>
-      <li><%= "タイトル：#{item.title}" %></li>
-      <li><%= "相手先：#{item.partner}" %></li>
-      <li><%= "説明：#{item.explanation}" %></li>
-      <li><%= "価格：#{item.price}円" %></li>
-      <span>-----------------</span>
-  <% end %>
-</div>
+<h3>経費の一覧</h3>
+<% @items.each do |item| %>
+  <li><%= "タイトル：#{item.title}" %></li>
+  <li><%= "相手先：#{item.partner}" %></li>
+  <li><%= "説明：#{item.explanation}" %></li>
+  <li><%= "価格：#{item.price}円" %></li>
+  <span>-----------------</span>
+<% end %>

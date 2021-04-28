@@ -1,0 +1,7 @@
+<h3>経費の登録</h3>
+  <%= form_with(model: @item, local: true) do |form| %>
+    <%= form.text_field :title, placeholder: "XXXに関する費用" %>
+    <%= form.text_field :partner, placeholder: "●●株式会社" %>
+    <%= form.text_area :explanation, placeholder: "XXXXXXXXXXXXX", rows: "5" %>
+    <%= form.submit "保存" %>
+  <% end %>
