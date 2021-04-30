@@ -1,0 +1,17 @@
+
+<h2>Sign up</h2>
+<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+  <%= devise_error_messages! %>
+    <%= f.label :nickname %> <em>(6 characters maximum)</em><br>
+    <%= f.text_field :nickname, autofocus: true, maxlength: "6" %><br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
+    <%= f.label :password %><br>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %><br>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %><br>
+    <%= f.submit "Sign up" %><br>
+<% end %>

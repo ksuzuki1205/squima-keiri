@@ -1,0 +1,12 @@
+<h2>Log in</h2>
+<%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  <% if devise_mapping.rememberable? %>
+      <%= f.label :remember_me %><br />
+      <%= f.check_box :remember_me %>
+  <% end -%>
+  <%= f.submit "Log in" %>
+<% end %>

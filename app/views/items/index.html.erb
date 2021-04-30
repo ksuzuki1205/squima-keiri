@@ -1,12 +1,20 @@
 <h3>経費の一覧</h3>
-<%=link_to '新しい経費の登録', new_item_path %>
+<% if user_signed_in?%> 
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete%><br>
+<% else %>
+  <%= link_to "新規ユーザー登録", new_user_registration_path, method: :get%><br>
+  <%= link_to "ログイン", new_user_session_path, method: :get%><br>
+<% end %>
+---<br>
+<%=link_to '新しい経費の登録', new_item_path %><br>
+---<br>
 <% @items.each do |item| %>
   <li><%= "タイトル：#{item.title}" %></li>
   <li><%= "相手先：#{item.partner}" %></li>
   <li><%= "説明：#{item.explanation}" %></li>
   <li><%= "価格：#{item.price}円" %></li>
-  <li><%= link_to 'この経費を編集する', edit_item_path(item.id), method: :get %></li>
-  <li><%= link_to 'この経費の詳細を見る', item_path(item.id), method: :get %></li>
-  <li><%= link_to 'この経費を削除する', item_path(item.id), method: :delete %></li>
+  <li><%= link_to '編集', edit_item_path(item.id), method: :get %></li>
+  <li><%= link_to '詳細表示', item_path(item.id), method: :get %></li>
+  <li><%= link_to '削除', item_path(item.id), method: :delete %></li>
   <span>-----------------</span>
 <% end %>
