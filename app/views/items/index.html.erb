@@ -6,6 +6,7 @@
   <li><%= "説明：#{item.explanation}" %></li>
   <li><%= "価格：#{item.price}円" %></li>
   <li><%= link_to 'この経費を編集する', edit_item_path(item.id), method: :get %></li>
+  <li><%= link_to 'この経費の詳細を見る', item_path(item.id), method: :get %></li>
   <li><%= link_to 'この経費を削除する', item_path(item.id), method: :delete %></li>
   <span>-----------------</span>
 <% end %>
