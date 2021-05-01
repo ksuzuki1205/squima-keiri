@@ -1,8 +1,10 @@
 <h3>経費の編集</h3>
   <%= form_with(model: @item, local: true) do |form| %>
-    <%= form.text_field :title, placeholder: "XXXに関する費用" %>
-    <%= form.text_field :partner, placeholder: "●●株式会社" %>
-    <%= form.text_area :explanation, placeholder: "XXXXXXXXXXXXX", rows: "5" %>
-    <%= form.text_field :price, placeholder: "XXXXXXXXXXXXX" %>円
-    <%= form.submit "保存" %>
+    <%= "登録ユーザーid：#{@item.user.id}" %><br>
+    <%= "登録ユーザー名：#{@item.user.nickname}" %><br>
+    <%= form.text_field :title, placeholder: "XXXに関する費用" %><br>
+    <%= form.text_field :partner, placeholder: "●●株式会社" %><br>
+    <%= form.text_area :explanation, placeholder: "XXXXXXXXXXXXX", rows: "5" %><br>
+    <%= form.text_field :price, placeholder: "XXXXXXXXXXXXX" %>円<br>
+    <%= form.submit "保存" %><br>
   <% end %>

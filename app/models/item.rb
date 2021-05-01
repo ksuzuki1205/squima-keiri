@@ -3,4 +3,5 @@ class Item < ApplicationRecord
   validates :partner,     presence: true
   validates :explanation, presence: true
   validates :price,       presence: true
+  belongs_to :user
 end

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all
+    @items = Item.includes(:user)
   end
 
   def new
@@ -31,7 +31,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:title, :partner, :explanation, :price)
+    params.require(:item).permit(:title, :partner, :explanation, :price).merge(user_id: current_user.id)
+    
   end
 
   def set_item
