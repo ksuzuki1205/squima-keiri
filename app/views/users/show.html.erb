@@ -1,0 +1,13 @@
+<p><%= current_user.nickname %>さんの投稿一覧</p>
+  <% @items.each do |item| %>
+      -----------------------------------<br>
+      <li><%= "タイトル：#{item.title}" %></li>
+      <li><%= "相手先：#{item.partner}" %></li>
+      <li><%= "説明：#{item.explanation}" %></li>
+      <li><%= "価格：#{item.price}円" %></li>
+      <li><%= "ユーザーid：#{item.user.id}" %></li>
+      <li><%= "ユーザーname：#{item.user.nickname}" %></li>
+      <li><%= link_to 'この経費を編集する', edit_item_path(item.id), method: :get %></li>
+      <li><%= link_to 'この経費を削除する', item_path(item.id), method: :delete %></li>
+
+  <% end %>

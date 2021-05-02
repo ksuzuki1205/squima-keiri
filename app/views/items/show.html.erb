@@ -1,7 +1,11 @@
+----------------------------------------------<br>
   <li><%= "タイトル：#{@item.title}" %></li>
   <li><%= "相手先：#{@item.partner}" %></li>
   <li><%= "説明：#{@item.explanation}" %></li>
   <li><%= "価格：#{@item.price}円" %></li>
+----------------------------------------------<br>
   <a href="/">投稿一覧へ戻る</a><br>
+  <% if user_signed_in? && current_user.id == @item.user.id %>
   <%= link_to 'この経費を編集する', edit_item_path(@item.id), method: :get %><br>
   <%= link_to 'この経費を削除する', item_path(@item.id), method: :delete %><br>
+  <% end %>
