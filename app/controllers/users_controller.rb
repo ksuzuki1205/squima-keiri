@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @items = current_user.items
+    if user_signed_in? 
+      @items = current_user.items
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
